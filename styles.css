@@ -1,0 +1,74 @@
+.size{
+    width: 350px;
+    height: auto;
+}
+
+
+html {
+    font-size: 1rem;
+  }
+
+h1{
+    font-size: .9rem;
+}
+
+body{
+    background-color: rgba(160, 159, 159, 0.226);
+}
+
+.border{
+    border-width: 2px !important;
+    border-color: #8ea9cd !important;
+}
+
+.btn{
+    border-width: 1.4px;
+    background-color: #fdc5c265;
+    border-color: #ec9b9f;
+}
+.newBColor{
+    background-color: #c3d3ea ;
+}
+/* 
+
+.row .col-8 div{
+    background-color: #c3d3ea ;
+}
+
+ */
+
+  /* @include media-breakpoint-up(sm) {
+    html {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @include media-breakpoint-up(md) {
+    html {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @include media-breakpoint-up(lg) {
+    html {
+      font-size: 1.6rem;
+    }
+  } */
+
+  @media (min-width: 576px){
+    html {
+        font-size: 1rem;
+        
+      }
+      
+  }
+  @media (min-width: 768px){
+    html {
+        font-size: 1.4rem;
+      }
+  }
+  @media (min-width: 992px){
+    html {
+        font-size: 1.6rem;
+      }
+  }
