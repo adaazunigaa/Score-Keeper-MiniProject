@@ -3,7 +3,11 @@
     height: auto;
 }
 
-
+.win{
+  color: purple;
+  font-size: xx-large;
+  font: bolder1;
+}
 html {
     font-size: 1rem;
   }

@@ -23,6 +23,9 @@ const player2Btn = document.querySelector("#player2Btn");
 //RESET BUTTON
 const resetBtn = document.querySelector("#resetBtn");
 
+//WINNER PARAGRAPH
+const winner = document.querySelector("#winner");
+
 
 let p1s = 0;
 let p2s = 0;
@@ -37,6 +40,7 @@ player1Btn.addEventListener("click", function (e) {
             isGameOver = true;
             p1actualScore.style.color = "green";
             p2actualScore.style.color = "red";
+            winner.textContent="Player 1 wins"
         }
         p1actualScore.textContent = p1s;
     }
@@ -50,6 +54,7 @@ player2Btn.addEventListener("click", function (e) {
             isGameOver = true;
             p2actualScore.style.color = "green";
             p1actualScore.style.color = "red";
+            winner.textContent="Player 2 wins"
 
         }
         p2actualScore.textContent = p2s;
@@ -74,5 +79,6 @@ resetBtn.addEventListener("click", function (e) {
     isGameOver = false;
     p2actualScore.style.color = "black";
     p1actualScore.style.color = "black";
+    winner.textContent="";
 });
 
