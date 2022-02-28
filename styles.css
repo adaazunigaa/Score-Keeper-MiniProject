@@ -4,10 +4,11 @@
 }
 
 .win{
-  color: purple;
+  color: #FA887A;
   font-size: xx-large;
-  font: bolder1;
+  font: bolder;
 }
+
 html {
     font-size: 1rem;
   }
@@ -18,6 +19,13 @@ h1{
 
 body{
     background-color: rgba(160, 159, 159, 0.226);
+}
+
+.firstPlace{
+  color: green;
+}
+.secondPlace{
+  color: red;
 }
 
 .border{

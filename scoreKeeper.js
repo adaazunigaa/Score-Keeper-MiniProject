@@ -38,9 +38,9 @@ player1Btn.addEventListener("click", function (e) {
         p1s += 1;
         if (p1s === parseInt(playingTo.value)) {
             isGameOver = true;
-            p1actualScore.style.color = "green";
-            p2actualScore.style.color = "red";
-            winner.textContent="Player 1 wins"
+            p1actualScore.classList.add("firstPlace")
+            p2actualScore.classList.add("secondPlace");
+            winner.textContent="PLAYER 1 WINS"
         }
         p1actualScore.textContent = p1s;
     }
@@ -52,9 +52,9 @@ player2Btn.addEventListener("click", function (e) {
         p2s += 1;
         if (p2s === parseInt(playingTo.value)) {
             isGameOver = true;
-            p2actualScore.style.color = "green";
-            p1actualScore.style.color = "red";
-            winner.textContent="Player 2 wins"
+            p1actualScore.classList.add("firstPlace")
+            p2actualScore.classList.add("secondPlace");
+            winner.textContent="PLAYER 2 WINS"
 
         }
         p2actualScore.textContent = p2s;
