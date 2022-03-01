@@ -27,6 +27,9 @@ body{
 .secondPlace{
   color: red;
 }
+.resetColors{
+  color: black;
+}
 
 .border{
     border-width: 2px !important;

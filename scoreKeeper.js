@@ -7,18 +7,22 @@ givenName.addEventListener("input", function (e) {
     dName.innerText = `${givenName.value} Score keeper`;
 });
 
+const p1 = {
+    score: 0,
+    button: document.querySelector("#player1Btn"),
+    display: document.querySelector(".p1Score"),
+    win: "PLAYER 1 WINS"
+}
+const p2 = {
+    score: 0,
+    button: document.querySelector("#player2Btn"),
+    display: document.querySelector(".p2Score"),
+    win: "PLAYER 2 WINS"
+}
 
 
 //PLAYING TO VALUE
 const playingTo = document.querySelector("#playingToValue");
-
-//DISPLAY SCORE
-const p1actualScore = document.querySelector(".p1Score");
-const p2actualScore = document.querySelector(".p2Score");
-
-//PLAYER BUTTONS
-const player1Btn = document.querySelector("#player1Btn");
-const player2Btn = document.querySelector("#player2Btn");
 
 //RESET BUTTON
 const resetBtn = document.querySelector("#resetBtn");
@@ -26,39 +30,31 @@ const resetBtn = document.querySelector("#resetBtn");
 //WINNER PARAGRAPH
 const winner = document.querySelector("#winner");
 
-
-let p1s = 0;
-let p2s = 0;
 let isGameOver = false;
 
+function updateScores(player, oponent) {
+    if (!isGameOver) {
+        player.score += 1;
+        if (player.score === parseInt(playingTo.value)) {
+            isGameOver = true;
+            player.display.classList.add("firstPlace")
+            oponent.display.classList.add("secondPlace");
+            player.button.disable = true;
+            oponent.button.disable = true;
+            winner.textContent = player.win;
+        }
+        player.display.textContent = player.score;
+    }
+}
 
 //EVENT LISTENERS
-player1Btn.addEventListener("click", function (e) {
-    if (!isGameOver) {
-        p1s += 1;
-        if (p1s === parseInt(playingTo.value)) {
-            isGameOver = true;
-            p1actualScore.classList.add("firstPlace")
-            p2actualScore.classList.add("secondPlace");
-            winner.textContent="PLAYER 1 WINS"
-        }
-        p1actualScore.textContent = p1s;
-    }
+p1.button.addEventListener("click", function (e) {
+    updateScores(p1, p2);
 });
 
 
-player2Btn.addEventListener("click", function (e) {
-    if (!isGameOver) {
-        p2s += 1;
-        if (p2s === parseInt(playingTo.value)) {
-            isGameOver = true;
-            p1actualScore.classList.add("firstPlace")
-            p2actualScore.classList.add("secondPlace");
-            winner.textContent="PLAYER 2 WINS"
-
-        }
-        p2actualScore.textContent = p2s;
-    }
+p2.button.addEventListener("click", function (e) {
+    updateScores(p2, p1);
 });
 
 
@@ -68,17 +64,25 @@ player2Btn.addEventListener("click", function (e) {
 // });
 
 
-resetBtn.addEventListener("click", function (e) {
-    p1actualScore.textContent = 0;
-    p2actualScore.innerText = 0;
-    playingTo.value = 2;
+resetBtn.addEventListener("click", reset);
+
+
+playingTo.addEventListener("click", reset)
+
+
+function reset() {
+    isGameOver = false;
+    p1.display.textContent = 0;
+    p2.display.innerText = 0;
+    //playingTo.value = 2;
     dName.innerText = "Your Game";
     givenName.value = "";
-    p1s = 0;
-    p2s = 0;
-    isGameOver = false;
-    p2actualScore.style.color = "black";
-    p1actualScore.style.color = "black";
-    winner.textContent="";
-});
+    winner.textContent = "";
+    p1.score = 0;
+    p2.score = 0;
 
+    p1.display.classList.remove("firstPlace", "secondPlace");
+    p2.display.classList.remove("firstPlace", "secondPlace");
+
+    winner.textContent = "";
+}
