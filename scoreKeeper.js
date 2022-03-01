@@ -72,17 +72,13 @@ playingTo.addEventListener("click", reset)
 
 function reset() {
     isGameOver = false;
-    p1.display.textContent = 0;
-    p2.display.innerText = 0;
+    for (let p of [p1, p2]) {
+        p.score = 0;
+        p.display.textContent = 0;
+        p.display.classList.remove("firstPlace", "secondPlace");
+    }
     //playingTo.value = 2;
     dName.innerText = "Your Game";
     givenName.value = "";
-    winner.textContent = "";
-    p1.score = 0;
-    p2.score = 0;
-
-    p1.display.classList.remove("firstPlace", "secondPlace");
-    p2.display.classList.remove("firstPlace", "secondPlace");
-
     winner.textContent = "";
 }
